@@ -2,6 +2,8 @@ const addTodo = document.querySelector('.add');
 const todoList = document.querySelector('.todos');
 const search = document.querySelector('.search input');
 
+
+//task template
 const createTodo = todo => {
     const newTodo =
     `
@@ -13,6 +15,8 @@ const createTodo = todo => {
     todoList.innerHTML += newTodo;
 };
 
+
+//to create new tasks
 addTodo.addEventListener('submit', e => {
     e.preventDefault();
 
@@ -24,12 +28,16 @@ addTodo.addEventListener('submit', e => {
 
 });
 
+
+//to delete tasks
 todoList.addEventListener('click', e => {
     if(e.target.classList.contains('delete')){
         e.target.parentElement.remove();
     }
 });
 
+
+//adding filtered class for searching
 const filterTodos = e => {
 
     Array.from(todoList.children)
@@ -42,6 +50,7 @@ const filterTodos = e => {
 
 };
 
+//for live searching and filtering
 search.addEventListener('keyup', () => {
     
     const key = search.value.trim();
