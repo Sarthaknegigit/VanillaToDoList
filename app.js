@@ -22,3 +22,9 @@ addTodo.addEventListener('submit', e => {
     }
 
 });
+
+todoList.addEventListener('click', e => {
+    if(e.target.classList.contains('delete')){
+        e.target.parentElement.remove();
+    }
+});
