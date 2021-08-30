@@ -41,11 +41,11 @@ todoList.addEventListener('click', e => {
 const filterTodos = e => {
 
     Array.from(todoList.children)
-    .filter((todo) =>!todo.textContent.includes(e))
+    .filter((todo) =>!todo.textContent.toLowerCase().includes(e))
     .forEach((todo) => todo.classList.add('filtered'));
 
     Array.from(todoList.children)
-    .filter((todo) => todo.textContent.includes(e))
+    .filter((todo) => todo.textContent.toLowerCase().includes(e))
     .forEach((todo) => todo.classList.remove('filtered'));
 
 };
@@ -53,7 +53,7 @@ const filterTodos = e => {
 //for live searching and filtering
 search.addEventListener('keyup', () => {
     
-    const key = search.value.trim();
+    const key = search.value.trim().toLowerCase();
 
     filterTodos(key);
 });
